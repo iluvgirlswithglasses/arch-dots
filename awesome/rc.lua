@@ -1,4 +1,4 @@
- --____________________________________________/\\\\\\\\\\\\\\\_____________________        
+--____________________________________________/\\\\\\\\\\\\\\\_____________________        
 -- ___________________________________________\/////////////\\\_____________________       
 --  __________________/\\\________________________________/\\\/___/\\\_______________      
 --   __/\\\\\\\\\\__/\\\\\\\\\\\__/\\\\\\\\\_____________/\\\/____\///___/\\\____/\\\_     
@@ -280,33 +280,33 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
 
     -- Chromium
-    awful.key({ modkey }, "w", function () awful.util.spawn( "chromium" ) end,
-        {description = "web browser", group = "apps"}),
+    -- awful.key({ modkey }, "w", function () awful.util.spawn( "chromium" ) end,
+    --     {description = "web browser", group = "apps"}),
     
     -- Discord
-    awful.key({ modkey }, "d", function () awful.util.spawn( "discord" ) end,
-        {description = "discord", group = "apps"}),
+    -- awful.key({ modkey }, "d", function () awful.util.spawn( "discord" ) end,
+    --     {description = "discord", group = "apps"}),
     
     -- Rofi / run a program
     awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show drun" ) end,
         {description = "Run program with rofi", group = "apps"}),
      
     -- Telegram
-    awful.key({ modkey }, "t", function () awful.util.spawn( "telegram-desktop" ) end,
-        {description = "telegram", group = "apps"}),
+    -- awful.key({ modkey }, "t", function () awful.util.spawn( "telegram-desktop" ) end,
+    --     {description = "telegram", group = "apps"}),
       
     -- Abre nautilus
-    awful.key({ modkey }, "e", function () awful.util.spawn( "kitty -e vifm" ) end,
-        {description = "Vifm - File Manager", group = "apps"}),
+    -- awful.key({ modkey }, "e", function () awful.util.spawn( "kitty -e vifm" ) end,
+    --     {description = "Vifm - File Manager", group = "apps"}),
         
     
     -- Abre microsoft teams
-    awful.key({ modkey }, "c", function () awful.util.spawn( "teams" ) end,
-        {description = "Microsoft teams / work", group = "apps"}),
+    -- awful.key({ modkey }, "c", function () awful.util.spawn( "teams" ) end,
+    --     {description = "Microsoft teams / work", group = "apps"}),
     
     -- Abre Office
-    awful.key({ modkey }, "g", function () awful.util.spawn( "libreoffice" ) end,
-        {description = "Office", group = "apps"}),
+    -- awful.key({ modkey }, "g", function () awful.util.spawn( "libreoffice" ) end,
+    --     {description = "Office", group = "apps"}),
     
     
     awful.key({ modkey }, "v", function () awful.util.spawn( "pavucontrol" ) end,
@@ -380,19 +380,19 @@ globalkeys = my_table.join(
     ),
 
     -- By direction client focus
-    awful.key({ modkey }, "k",
+    awful.key({ modkey }, "j",
         function()
             awful.client.focus.global_bydirection("down")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus down", group = "client"}),
-    awful.key({ modkey }, "i",
+    awful.key({ modkey }, "k",
         function()
             awful.client.focus.global_bydirection("up")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus up", group = "client"}),
-    awful.key({ modkey }, "j",
+    awful.key({ modkey }, "h",
         function()
             awful.client.focus.global_bydirection("left")
             if client.focus then client.focus:raise() end
@@ -536,27 +536,27 @@ globalkeys = my_table.join(
               end,
               {description = "restore minimized", group = "client"}),
     -- Brightness
-    -- awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
-    --          {description = "+10%", group = "hotkeys"}),
-    -- awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
-    --          {description = "-10%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+             {description = "+10%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+             {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
+    -- controlled by xbindkeys now
     --awful.key({ modkey1 }, "Up",
-    awful.key({ }, "F4",
-        function ()
-            awful.spawn.with_shell("python3 $HOME/.config/awesome/volume.py set +5%")
-        end),
+    --awful.key({ }, "XF86RaiseVolume",
+    --    function ()
+    --        os.execute("pactl set-sink-volume 0 +5%")
+    --    end),
     --awful.key({ modkey1 }, "Down",
-    awful.key({ }, "F3",
-        function ()
-            awful.spawn.with_shell("python3 $HOME/.config/awesome/volume.py set -5%") 
-        end),
-    awful.key({ }, "XF86AudioMute",
-        function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
+    --awful.key({ }, "XF86LowerVolume",
+    --    function ()
+    --        os.execute("pactl set-sink-volume 0 -5%")
+    --    end),
+    --awful.key({ }, "XF86AudioMute",
+    --    function ()
+    --        os.execute("pactl set-sink-mute 0 toggle")
+    --    end),
     awful.key({ modkey1, "Shift" }, "m",
         function ()
             os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
