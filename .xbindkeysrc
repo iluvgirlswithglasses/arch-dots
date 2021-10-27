@@ -83,11 +83,11 @@
 	XF86AudioMute
 
 # Backlight Increase
-"light -A 5"
+"sudo -S light -A 5 && echo 1"
 	XF86MonBrightnessUp
 
 # Backlight Decrease
-"light -U 5"
+"sudo -S light -U 5 && echo 1"
 	XF86MonBrightnessDown
 
 ##################################
