@@ -54,7 +54,7 @@ local my_user_widget = wibox.widget {
             },
             {
               {
-                markup = '<span foreground="'..colors.yellow..'">Awesome is Awesome!</span>',
+                markup = '<span foreground="'..colors.yellow..'">i luv girls with glasses !</span>',
                 font = "JetBrainsMono Nerd Font 13",
                 widget = wibox.widget.textbox
               },
@@ -562,8 +562,8 @@ local function return_menu(screen)
   
   local menu = wibox.widget {
     {
-        { 
-            image  = dir .. "/awesome.svg",
+        {
+            image  = dir .. "/sakura.svg",  -- change the menu icon here 🌸
             resize = true,
             widget = wibox.widget.imagebox
         },
