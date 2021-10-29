@@ -64,15 +64,15 @@ theme.systray_icon_spacing		        = 5
 
 -- Taglist configuration --
 theme.taglist_bg_occupied                       = colors.polar.darkest
-theme.taglist_fg_occupied                       = colors.yellow
+theme.taglist_fg_occupied                       = colors.green  -- colors.yellow
 theme.taglist_bg_empty                          = colors.polar.darkest 
-theme.taglist_fg_empty                          = colors.green
+theme.taglist_fg_empty                          = colors.polar.darkest  -- colors.green
 theme.taglist_bg_urgent                         = colors.polar.darkest
 theme.taglist_fg_urgent                         = colors.pink
 theme.taglist_fg_volatile                       = colors.frost.lightest
 theme.taglist_bg_volatile                       = colors.polar.darkest
 -- Colors
-theme.taglist_fg_focus                          = colors.light.medium
+theme.taglist_fg_focus                          = "#5fb4b4" -- colors.light.medium
 theme.taglist_bg_focus                          = colors.polar.darkest
 -- Taglist shape, refer to awesome wm documentation if you have 
 -- any doubt about this!
