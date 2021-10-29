@@ -8,10 +8,10 @@ function return_taglist(s)
     local unfocus_icon = ""
     local unfocus_color = colors.frost.lightest
 
-    local empty_icon = "ﱤ"
+    local empty_icon = ""
     local empty_color = colors.polar.lighter
 
-    local focus_icon =  "ﱣ"
+    local focus_icon =  ""
     local focus_color = colors.light.lightest
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------

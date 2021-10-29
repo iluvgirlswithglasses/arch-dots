@@ -5,22 +5,110 @@ local wibox = require("wibox")
 local dpi = require("beautiful.xresources").apply_dpi
 
 function return_taglist(s)
-  local taglist = wibox.widget{
+    local unfocus_icon = ""
+    local unfocus_color = colors.frost.lightest
+
+    local empty_icon = ""
+    local empty_color = colors.polar.lighter
+
+    local focus_icon =  ""
+    local focus_color = colors.light.lightest
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+    -- Function to update the tags
+    local update_tags = function(self, c3)
+        local tagicon = self:get_children_by_id('icon_role')[1]
+        if c3.selected then
+            tagicon.text = focus_icon
+            self.fg = unfocus_color -- focus_color
+        elseif #c3:clients() == 0 then
+            tagicon.text = empty_icon
+            self.fg = unfocus_color -- empty_color
+        else
+            tagicon.text = unfocus_icon
+            self.fg = unfocus_color
+        end
+    end
+    
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+    local icon_taglist = awful.widget.taglist {
+        screen = s,
+        filter = awful.widget.taglist.filter.all,
+        layout = {spacing = 0, layout = wibox.layout.fixed.horizontal},
+        widget_template = {
+            {
+                {id = 'icon_role', font = "JetBrainsMono Nerd Font 15", widget = wibox.widget.textbox},
+                id = 'margin_role',
+                top = dpi(0),
+                bottom = dpi(0),
+                left = dpi(2),
+                right = dpi(2),
+                widget = wibox.container.margin
+            },
+            id = 'background_role',
+            widget = wibox.container.background,
+            create_callback = function(self, c3, index, objects)
+                update_tags(self, c3)       
+            end,
+
+            update_callback = function(self, c3, index, objects)
+                update_tags(self, c3)
+            end
+        },
+        buttons = awful.util.taglist_buttons
+    }
+
+    local taglist = wibox.widget{
       {
-          awful.widget.taglist{
-            screen = s,
-            filter = awful.widget.taglist.filter.all,
-            buttons = awful.util.taglist_buttons
-          },
-          left   = dpi(3),
-          top    = dpi(2),
-          bottom = dpi(2),
-          right  = dpi(3),
-          widget = wibox.container.margin
+            {
+                
+                {
+                    
+                    {
+                        forced_width  = 0,
+                        forced_height = 25,
+                        thickness     = 10,
+                        color         = colors.polar.darkest,
+                        widget        = wibox.widget.separator
+                    },
+                    valign = 'left',
+                    halign = 'left',
+                    widget = wibox.container.place,
+                    
+                },
+                {
+                    
+                    icon_taglist,
+                    left = 7,
+                    right = 7,
+                    widget = wibox.container.margin
+                },
+                {
+                    
+                    {
+                        forced_width  = 0,
+                        forced_height = 25,
+                        thickness     = 10,
+                        color         = colors.polar.darkest,
+                        widget        = wibox.widget.separator
+                    },
+                    valign = 'left',
+                    halign = 'left',
+                    widget = wibox.container.place,
+                    
+                },
+                layout = wibox.layout.fixed.horizontal
+                
+            },
+            shape = gears.shape.rounded_bar,
+            bg = colors.polar.darkest,
+            widget = wibox.container.background
       },
-      shape = gears.shape.rounded_bar,
-      bg = colors.polar.darkest,
-      widget = wibox.container.background
+      margins = 1,
+      widget = wibox.container.margin
   }
 
   return taglist
