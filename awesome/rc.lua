@@ -112,7 +112,7 @@ local modkey1      = "Mod2"
 
 -- personal variables
 --change these variables if you want
-local browser3          = "chromium -no-default-browser-check"
+local browser3          = "firefox-developer-edition"
 local editor            = os.getenv("EDITOR") or "nvim"
 local editorgui         = "code-insiders"
 local filemanager       = "dolphin"
@@ -140,7 +140,7 @@ awful.layout.layouts = {
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
@@ -268,6 +268,9 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s)
     s.systray.visible = true
  end)
 
+-- autorun
+
+
 -- {{{ Mouse bindings
 root.buttons(my_table.join(
     awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end),
@@ -277,8 +280,8 @@ root.buttons(my_table.join(
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = my_table.join(
 
+globalkeys = my_table.join(
     -- Chromium
     -- awful.key({ modkey }, "w", function () awful.util.spawn( "chromium" ) end,
     --     {description = "web browser", group = "apps"}),
@@ -296,8 +299,8 @@ globalkeys = my_table.join(
     --     {description = "telegram", group = "apps"}),
       
     -- Abre nautilus
-    -- awful.key({ modkey }, "e", function () awful.util.spawn( "kitty -e vifm" ) end,
-    --     {description = "Vifm - File Manager", group = "apps"}),
+    awful.key({ modkey }, "e", function () awful.util.spawn( "kitty -e vifm" ) end,
+        {description = "Vifm - File Manager", group = "apps"}),
         
     
     -- Abre microsoft teams
@@ -542,31 +545,30 @@ globalkeys = my_table.join(
              {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
-    -- controlled by xbindkeys now
-    --awful.key({ modkey1 }, "Up",
-    --awful.key({ }, "XF86RaiseVolume",
-    --    function ()
-    --        os.execute("pactl set-sink-volume 0 +5%")
-    --    end),
-    --awful.key({ modkey1 }, "Down",
-    --awful.key({ }, "XF86LowerVolume",
-    --    function ()
-    --        os.execute("pactl set-sink-volume 0 -5%")
-    --    end),
-    --awful.key({ }, "XF86AudioMute",
-    --    function ()
-    --        os.execute("pactl set-sink-mute 0 toggle")
-    --    end),
-    awful.key({ modkey1, "Shift" }, "m",
+    -- awful.key({ modkey1 }, "Up",
+    awful.key({ }, "XF86RaiseVolume",
         function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute("pactl set-sink-volume 0 +5%")
         end),
-    awful.key({ modkey1, "Shift" }, "0",
+    -- awful.key({ modkey1 }, "Down",
+    awful.key({ }, "XF86LowerVolume",
         function ()
-            os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute("pactl set-sink-volume 0 -5%")
+        end),
+    awful.key({ }, "XF86AudioMute",
+        function ()
+            os.execute("pactl set-sink-mute 0 toggle")
         end)
+    --awful.key({ modkey1, "Shift" }, "m",
+    --    function ()
+    --        os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
+    --        beautiful.volume.update()
+    --    end),
+    --awful.key({ modkey1, "Shift" }, "0",
+    --    function ()
+    --        os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
+    --        beautiful.volume.update()
+    --    end)
 
     --Media keys supported by vlc, spotify, audacious, xmm2, ...
     --awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
