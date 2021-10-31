@@ -12,8 +12,6 @@ class Fetch:
         self.term      =  os.getenv("TERM")
         self.syslang   =  os.getenv("LANG")
         self.path      =  os.getenv("PATH")
-
-
         
     def kernel(self):
         return run(["uname", "-r"])

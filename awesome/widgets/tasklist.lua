@@ -18,7 +18,7 @@ local tasklist = function(s, tasklist_buttons)
                     forced_width  = 10,
                     forced_height = 24,
                     thickness     = 4,
-                    color         = '#77777700',
+                    color         = '#77777700',   
                     widget        = wibox.widget.separator
                 },
                 valign = 'center',
