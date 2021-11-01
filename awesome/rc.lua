@@ -515,7 +515,7 @@ globalkeys = my_table.join(
                       c:raise()
                   end
               end,
-              {description = "restore minimized", group = "client"})
+              {description = "restore minimized", group = "client"}),
     -- Brightness
     -- awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
     --          {description = "+10%", group = "hotkeys"}),
@@ -523,28 +523,28 @@ globalkeys = my_table.join(
     --          {description = "-10%", group = "hotkeys"})
 
     -- ALSA volume control
-    -- awful.key({ }, "XF86AudioRaiseVolume",
-    --     function ()
-    --         os.execute("pactl set-sink-volume 0 +5%")
-    --     end),
-    -- awful.key({ }, "XF86AudioLowerVolume",
-    --     function ()
-    --         os.execute("pactl set-sink-volume 0 -5%")
-    --     end),
-    -- awful.key({ }, "XF86AudioMute",
-    --     function ()
-    --         os.execute("pactl set-sink-mute 0 toggle")
-    --     end)
-    --awful.key({ modkey1, "Shift" }, "m",
-    --    function ()
-    --        os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-    --        beautiful.volume.update()
-    --    end),
-    --awful.key({ modkey1, "Shift" }, "0",
-    --    function ()
-    --        os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-    --        beautiful.volume.update()
-    --    end)
+    awful.key({ }, "XF86AudioRaiseVolume",
+        function ()
+            os.execute("pactl set-sink-volume 0 +5%")
+        end),
+    awful.key({ }, "XF86AudioLowerVolume",
+        function ()
+            os.execute("pactl set-sink-volume 0 -5%")
+        end),
+    awful.key({ }, "XF86AudioMute",
+        function ()
+            os.execute("pactl set-sink-mute 0 toggle")
+        end),
+    awful.key({ modkey1, "Shift" }, "m",
+       function ()
+           os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
+           beautiful.volume.update()
+       end),
+    awful.key({ modkey1, "Shift" }, "0",
+       function ()
+           os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
+           beautiful.volume.update()
+       end)
 
     --Media keys supported by vlc, spotify, audacious, xmm2, ...
     --awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
