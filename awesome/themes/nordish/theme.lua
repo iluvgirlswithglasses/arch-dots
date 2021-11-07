@@ -121,7 +121,7 @@ theme.menu_height                               = dpi(25)
 theme.menu_width                                = dpi(260)
 
 local clock = wibox.widget{
-  format = " %H:%M",
+  format = " %H:%M   %b %d %Y",
   widget = wibox.widget.textclock
 } 
 

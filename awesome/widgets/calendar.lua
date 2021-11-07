@@ -33,7 +33,7 @@ function calendar(widget)
                     
                     {
                       {
-                        text = "Today is a great day!",
+                        text = "Wish myself a productive day!",
                         widget = wibox.widget.textbox
                       },
                       {
@@ -46,7 +46,7 @@ function calendar(widget)
                           widget = wibox.container.background,
                         },
                         {
-                          format = " %B",
+                          format = " %B", -- month
                           refresh = 60,
                           widget = wibox.widget.textclock
                         },
@@ -64,7 +64,7 @@ function calendar(widget)
                           widget = wibox.container.background,
                         },
                         {
-                          format = " %d",
+                          format = " %d", -- day
                           refresh = 60,
                           widget = wibox.widget.textclock
                         },
@@ -82,7 +82,7 @@ function calendar(widget)
                           widget = wibox.container.background,
                         },
                         {
-                          format = " %Y",
+                          format = " %Y", -- year
                           refresh = 60,
                           widget = wibox.widget.textclock
                         },
@@ -100,7 +100,7 @@ function calendar(widget)
                           widget = wibox.container.background,
                         },
                         {
-                          format = " %A",
+                          format = " %A", -- weekday
                           refresh = 60,
                           widget = wibox.widget.textclock
                         },

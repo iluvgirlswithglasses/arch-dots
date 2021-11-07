@@ -282,6 +282,11 @@ root.buttons(my_table.join(
 -- {{{ Key bindings
 
 globalkeys = my_table.join(
+    -- an additional feature: layout refresh
+    -- since nvidia driver is terrible
+    awful.key({ modkey, "Control" }, "r", function () awful.util.spawn( "kitty sh -c \"layout refresh for nvidia driver\"" ) end,
+        {description = "Layout refresh for nvidia driver", group = "driver support"}),
+
     -- Chromium
     -- awful.key({ modkey }, "w", function () awful.util.spawn( "chromium" ) end,
     --     {description = "web browser", group = "apps"}),
@@ -466,8 +471,8 @@ globalkeys = my_table.join(
     -- Dynamic tagging
     awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
               {description = "add new tag", group = "tag"}),
-    awful.key({ modkey, "Control" }, "r", function () lain.util.rename_tag() end,
-              {description = "rename tag", group = "tag"}),
+    -- awful.key({ modkey, "Control" }, "r", function () lain.util.rename_tag() end,
+    --           {description = "rename tag", group = "tag"}),
     awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
               {description = "move tag to the left", group = "tag"}),
     awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
@@ -534,17 +539,17 @@ globalkeys = my_table.join(
     awful.key({ }, "XF86AudioMute",
         function ()
             os.execute("pactl set-sink-mute 0 toggle")
-        end),
-    awful.key({ modkey1, "Shift" }, "m",
-       function ()
-           os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-           beautiful.volume.update()
-       end),
-    awful.key({ modkey1, "Shift" }, "0",
-       function ()
-           os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-           beautiful.volume.update()
-       end)
+        end)
+    -- awful.key({ modkey1, "Shift" }, "m",
+    --    function ()
+    --        os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
+    --        beautiful.volume.update()
+    --    end),
+    -- awful.key({ modkey1, "Shift" }, "0",
+    --    function ()
+    --        os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
+    --        beautiful.volume.update()
+    --    end)
 
     --Media keys supported by vlc, spotify, audacious, xmm2, ...
     --awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
