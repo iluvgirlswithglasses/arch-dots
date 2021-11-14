@@ -16,7 +16,7 @@ run nm-applet
 #run caffeine
 run pamac-tray
 run variety
-run xfce4-power-manager
+#run xfce4-power-manager
 run blueberry-tray
 run picom
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -27,6 +27,7 @@ run dunst
 #you can set wallpapers in themes as well
 
 #run applications from startup
+run qbittorrent
 #run firefox
 #run atom
 #run dropbox
