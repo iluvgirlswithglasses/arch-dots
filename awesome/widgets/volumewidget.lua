@@ -119,9 +119,9 @@ local popup = awful.popup{
         },
         {
           {
-            volume_up,
-            separator,
             volume_down,
+            separator,
+            volume_up,
             separator, 
             volume_toggle,
             layout = wibox.layout.fixed.horizontal

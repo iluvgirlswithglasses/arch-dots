@@ -80,6 +80,10 @@ end
 run_once({ "unclutter -root" }) -- entries must be comma-separated
 -- }}}
 
+-- {{{ Autostart programs
+awful.util.spawn("qbittorrent")
+-- }}}
+
 -- This function implements the XDG autostart specification
 --[[
 awful.spawn.with_shell(
