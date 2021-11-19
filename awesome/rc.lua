@@ -136,26 +136,26 @@ awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,
     -- awful.layout.suit.floating,
-    awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center,
+    awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
+    -- awful.layout.suit.corner.ne,
+    -- awful.layout.suit.corner.sw,
+    -- awful.layout.suit.corner.se,
+    -- lain.layout.cascade,
+    -- lain.layout.cascade.tile,
+    -- lain.layout.centerwork,
+    -- lain.layout.centerwork.horizontal,
+    -- lain.layout.termfair,
+    -- lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -303,9 +303,8 @@ globalkeys = my_table.join(
     -- awful.key({ modkey }, "t", function () awful.util.spawn( "telegram-desktop" ) end,
     --     {description = "telegram", group = "apps"}),
       
-    -- Abre nautilus
-    awful.key({ modkey }, "e", function () awful.util.spawn( "kitty -e vifm" ) end,
-        {description = "Vifm - File Manager", group = "apps"}),
+    -- file manager
+    awful.key({ modkey }, "e", function() awful.util.spawn( filemanager ) end),
         
     
     -- Abre microsoft teams
@@ -326,7 +325,7 @@ globalkeys = my_table.join(
         {description = "Kill proces", group = "hotkeys"}),
 
     -- super + shift + ...
-    awful.key({ modkey, "Shift"   }, "e", function() awful.util.spawn( filemanager ) end),
+    -- awful.key({ modkey, "Shift"   }, "e", function() awful.util.spawn( filemanager ) end),
 
 
     -- awful.key({ modkey1, altkey   }, "b", function() awful.util.spawn( filemanager ) end,

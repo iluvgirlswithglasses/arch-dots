@@ -13,7 +13,7 @@ local dir = os.getenv("HOME") .. "/.config/awesome"
 local username = os.getenv("USER")
 local myavatar = dir .. "/images/avatar.jpg"
 
-local myfavoritebrowser = "chromium"
+local myfavoritebrowser = "firefox-developer-edition"
 local terminal          = "kitty"
 local editor            = "nvim"
 local my_user_widget = wibox.widget {
@@ -327,7 +327,7 @@ local fav_apps = {
           add_app(
             function()
               awful.spawn.with_shell(
-                myfavoritebrowser.." https://reddit.com/r/unixporn"
+                myfavoritebrowser.." https://reddit.com"
               )
             end,
             '<span font="JetBrainsMono Nerd Font 20"></span>',
@@ -360,7 +360,7 @@ local fav_apps = {
                 myfavoritebrowser.." https://youtube.com"
               )
             end,
-            '<span font="JetBrainsMono Nerd Font 20"></span>',
+            '<span font="JetBrainsMono Nerd Font 20"></span>',
             colors.red,
             colors.polar.darkest
           ),
