@@ -1,3 +1,6 @@
+
+-- original: github.com/MrJakeSir
+
 --____________________________________________/\\\\\\\\\\\\\\\_____________________        
 -- ___________________________________________\/////////////\\\_____________________       
 --  __________________/\\\________________________________/\\\/___/\\\_______________      
@@ -14,7 +17,7 @@ local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, 
 
 local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
 
---https://awesomewm.org/doc/api/documentation/05-awesomerc.md.html
+-- https://awesomewm.org/doc/api/documentation/05-awesomerc.md.html
 -- Standard awesome library
 local gears         = require("gears") --Utilities such as color parsing and objects
 local awful         = require("awful") --Everything related to window managment
@@ -29,7 +32,7 @@ local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 naughty.config.defaults['icon_size'] = 130
 
---local menubar       = require("menubar")
+-- local menubar       = require("menubar")
 
 local lain          = require("lain")
 local freedesktop   = require("freedesktop")
@@ -81,14 +84,14 @@ run_once({ "unclutter -root" }) -- entries must be comma-separated
 -- }}}
 
 -- This function implements the XDG autostart specification
---[[
+-- [[
 awful.spawn.with_shell(
     'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
     'xrdb -merge <<< "awesome.started:true";' ..
     -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
     'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
 )
---]]
+-- ]]
 
 -- }}}
 
@@ -110,11 +113,10 @@ local modkey       = "Mod4"
 local altkey       = "Mod1"
 -- local modkey1      = "Mod2"
 
--- personal variables
---change these variables if you want
+-- personalized variables
 local browser3          = "firefox-developer-edition"
 local editor            = os.getenv("EDITOR") or "nvim"
-local editorgui         = "code-insiders"
+local editorgui         = "subl"
 local filemanager       = "dolphin"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
@@ -124,13 +126,11 @@ local virtualmachine    = "virtualbox"
 -- awesome variables
 awful.util.terminal = terminal
 
-awful.util.tagnames = {  "", "", "", "", ""}
---awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
---awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
---awful.util.tagnames = { "www", "edit", "gimp", "inkscape", "music" }
--- Use this : https://fontawesome.com/cheatsheet
---awful.util.tagnames = { "", "", "", "", "" }
---
+-- https://fontawesome.com/cheatsheet
+-- https://www.nerdfonts.com/cheat-sheet
+-- actually the line below doesn't matter anymore
+-- see widgets/taglist.lua
+awful.util.tagnames = {"", "", "", "", ""}
 
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
@@ -178,7 +178,7 @@ awful.util.taglist_buttons = my_table.join(
 
 -- If you're going to use a tasklist, uncomment all of these lines!
 
---awful.util.tasklist_buttons = my_table.join(
+-- awful.util.tasklist_buttons = my_table.join(
 --    awful.button({ }, 1, function (c)
 --        if c == client.focus then
 --            c.minimized = true
@@ -212,7 +212,7 @@ awful.util.taglist_buttons = my_table.join(
 --    end),
 --    awful.button({ }, 4, function () awful.client.focus.byidx(1) end),
 --    awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
---)
+-- )
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 -- }}}
@@ -241,9 +241,9 @@ awful.util.mymainmenu = freedesktop.menu.build({
     }
 })
 -- hide menu when mouse leaves it
---awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function() awful.util.mymainmenu:hide() end)
+-- awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function() awful.util.mymainmenu:hide() end)
 
---menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
+-- menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 -- }}}
 
 
@@ -262,7 +262,7 @@ screen.connect_signal("property::geometry", function(s)
     end
 end)
 
---Create a wibox for each screen and add it
+-- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s)
     s.systray = wibox.widget.systray()
     s.systray.visible = true
@@ -296,7 +296,7 @@ globalkeys = my_table.join(
     --     {description = "discord", group = "apps"}),
     
     -- Rofi / run a program
-    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show drun" ) end,
+    awful.key({ modkey }, "r", function () awful.util.spawn( "/home/mika/.config/rofi/launchers/text/launcher.sh" ) end,
         {description = "Run program with rofi", group = "apps"}),
      
     -- Telegram
@@ -344,11 +344,11 @@ globalkeys = my_table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
         {description = "show help", group="awesome"}),
 
-     -- Tag browsing modkey + tab
-    awful.key({ modkey,           }, "Tab",   awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ modkey, "Shift"   }, "Tab",  awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
+    -- Tag browsing modkey + tab
+    -- awful.key({ modkey,           }, "Tab",  awful.tag.viewnext,
+    --     {description = "view next", group = "tag"}),
+    -- awful.key({ modkey, "Shift"   }, "Tab",  awful.tag.viewprev,
+    --     {description = "view previous", group = "tag"}),
 
     -- Default client focus
     -- awful.key({ altkey,           }, "j",
@@ -531,8 +531,16 @@ globalkeys = my_table.join(
         function ()
             os.execute("pactl set-sink-volume 0 +5%")
         end),
+    awful.key({ modkey, "Shift" }, "0",
+        function()
+            os.execute("pactl set-sink-volume 0 +5%")
+        end),
     awful.key({ }, "XF86AudioLowerVolume",
         function ()
+            os.execute("pactl set-sink-volume 0 -5%")
+        end),
+    awful.key({ modkey, "Shift" }, "9",
+        function()
             os.execute("pactl set-sink-volume 0 -5%")
         end),
     awful.key({ }, "XF86AudioMute",
