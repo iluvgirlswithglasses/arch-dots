@@ -24,7 +24,7 @@ local w = wibox {
     max_widget_size = 500,
     ontop = true,
     height = 200,
-    width = 400,
+    width = 440,
     shape = function(cr, width, height)
         gears.shape.rounded_rect(cr, width, height, 8)
     end

@@ -33,7 +33,7 @@ function calendar(widget)
                     
                     {
                       {
-                        text = "Wish myself a productive day!",
+                        text = "./themes/nordish/theme.lua line 343",
                         widget = wibox.widget.textbox
                       },
                       {

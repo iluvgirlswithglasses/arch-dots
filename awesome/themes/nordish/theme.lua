@@ -296,7 +296,7 @@ function theme.at_screen_connect(s)
         screen = s, 
         -- @padding-layout
         -- width = dpi(s.workarea.width-40-theme.border_width-7),
-        width = dpi(s.workarea.width+20),
+        width = dpi(s.workarea.width+40),
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         border_width = 5,
@@ -340,7 +340,7 @@ function theme.at_screen_connect(s)
                     
                     {
                       {
-                        text = "Hope myself less miserable day!",
+                        text = "Twenty-eight years\nin that godforsaken jungle",
                         widget = wibox.widget.textbox
                       },
                       {
