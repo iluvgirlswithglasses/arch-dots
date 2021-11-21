@@ -351,7 +351,7 @@ globalkeys = my_table.join(
     ),
 
     awful.key(
-        { modkey }, "Escape", 
+        { modkey, "Shift" }, "q", 
         function () 
             awful.util.spawn( "xkill" ) 
         end,
@@ -615,20 +615,24 @@ globalkeys = my_table.join(
         end,
         {description = "decrease master width factor", group = "layout"}
     ),
+
+    -- for vertical screens
     awful.key(
-        { modkey, "Shift"   }, "h",
+        { modkey }, "Up",
         function () 
             awful.tag.incnmaster( 1, nil, true) 
         end,
         {description = "increase the number of master clients", group = "layout"}
     ),
     awful.key(
-        { modkey, "Shift"   }, "l",
+        { modkey }, "Down",
         function () 
             awful.tag.incnmaster(-1, nil, true) 
         end,
         {description = "decrease the number of master clients", group = "layout"}
     ),
+
+
     awful.key(
         { modkey, "Control" }, "h",
         function () 
@@ -922,7 +926,7 @@ awful.rules.rules = {
     },
 
     { 
-        rule = { class = "Vlc" },
+        rule = { class = "mpv" },
         properties = { maximized = true } 
     },
 

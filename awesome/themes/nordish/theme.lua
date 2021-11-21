@@ -2,6 +2,14 @@
 Config files by MrJakeSir
 --]]
 
+
+--[[
+currently using non-padding mode
+which is... pretty unfriendly to wallpapers
+
+change mode in @padding-layout
+]]--
+
 local gears = require("gears")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local add_app = require("utils.add_app")
@@ -286,7 +294,9 @@ function theme.at_screen_connect(s)
       { 
         position = "top",
         screen = s, 
-        width = dpi(s.workarea.width-40-theme.border_width-7),
+        -- @padding-layout
+        -- width = dpi(s.workarea.width-40-theme.border_width-7),
+        width = dpi(s.workarea.width+20),
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         border_width = 5,
@@ -330,7 +340,7 @@ function theme.at_screen_connect(s)
                     
                     {
                       {
-                        text = "Today is a great day!",
+                        text = "Hope myself less miserable day!",
                         widget = wibox.widget.textbox
                       },
                       {
@@ -466,7 +476,7 @@ function theme.at_screen_connect(s)
       return widget
     end 
     local time = calendar(time)
-    s.mywibox.y = 10
+    -- s.mywibox.y = 10
     
 ---------------------------------------
 --                                    --
@@ -524,15 +534,15 @@ function theme.at_screen_connect(s)
               colors.polar.darkest
           ),
           appsep,
-          add_app(
-              function()
-                awful.spawn.with_shell(TERMINAL .." -e htop")
-              end,
-              "",
-              colors.green,
-              colors.polar.darkest
-          ),
-          appsep, appsep,
+          -- add_app(
+          --     function()
+          --       awful.spawn.with_shell(TERMINAL .." -e htop")
+          --     end,
+          --     "",
+          --     colors.green,
+          --     colors.polar.darkest
+          -- ),
+          -- appsep, appsep,
           
           round_bg_widget(
              {
@@ -547,8 +557,8 @@ function theme.at_screen_connect(s)
           --notif(s)
         }
     }
-    awful.screen.padding(screen[s], {top = 25, left = 20,
-                                    right = 20, bottom = 10})
+    -- @padding-layout
+    -- awful.screen.padding(screen[s], {top = 25, left = 20, right = 20, bottom = 10})
 end
 
 -- Returns the theme 
