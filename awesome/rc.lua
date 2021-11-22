@@ -437,30 +437,38 @@ globalkeys = my_table.join(
 
 
     -- By direction client focus with arrows
-    -- awful.key({ modkey }, "Down",
-    --     function()
-    --         awful.client.focus.global_bydirection("down")
-    --         if client.focus then client.focus:raise() end
-    --     end,
-    --     {description = "focus down", group = "client"}),
-    -- awful.key({ modkey }, "Up",
-    --     function()
-    --         awful.client.focus.global_bydirection("up")
-    --         if client.focus then client.focus:raise() end
-    --     end,
-    --     {description = "focus up", group = "client"}),
-    -- awful.key({ modkey }, "Left",
-    --     function()
-    --         awful.client.focus.global_bydirection("left")
-    --         if client.focus then client.focus:raise() end
-    --     end,
-    --     {description = "focus left", group = "client"}),
-    -- awful.key({ modkey }, "Right",
-    --     function()
-    --         awful.client.focus.global_bydirection("right")
-    --         if client.focus then client.focus:raise() end
-    --     end,
-    --     {description = "focus right", group = "client"}),
+    awful.key(
+        { modkey }, "Down",
+        function()
+            awful.client.focus.global_bydirection("down")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus down", group = "client"}
+    ),
+    awful.key(
+        { modkey }, "Up",
+        function()
+            awful.client.focus.global_bydirection("up")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus up", group = "client"}
+    ),
+    awful.key(
+        { modkey }, "Left",
+        function()
+            awful.client.focus.global_bydirection("left")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus left", group = "client"}
+    ),
+    awful.key(
+        { modkey }, "Right",
+        function()
+            awful.client.focus.global_bydirection("right")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus right", group = "client"}
+    ),
 
 
     -- Layout manipulation
@@ -618,14 +626,14 @@ globalkeys = my_table.join(
 
     -- for vertical screens
     awful.key(
-        { modkey }, "Up",
+        { modkey, "Shift" }, "Up",
         function () 
             awful.tag.incnmaster( 1, nil, true) 
         end,
         {description = "increase the number of master clients", group = "layout"}
     ),
     awful.key(
-        { modkey }, "Down",
+        { modkey, "Shift" }, "Down",
         function () 
             awful.tag.incnmaster(-1, nil, true) 
         end,
