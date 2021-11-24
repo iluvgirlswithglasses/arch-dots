@@ -296,7 +296,7 @@ function theme.at_screen_connect(s)
         screen = s, 
         -- @padding-layout
         -- width = dpi(s.workarea.width-40-theme.border_width-7),
-        width = dpi(s.workarea.width+40),
+        width = dpi(s.workarea.width+31),
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         border_width = 5,

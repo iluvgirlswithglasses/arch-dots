@@ -24,6 +24,7 @@ local awful         = require("awful") --Everything related to window managment
                       require("awful.autofocus")
 -- Widget and layout library
 local wibox         = require("wibox")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
 -- Theme handling library
 local beautiful     = require("beautiful")
@@ -640,6 +641,15 @@ globalkeys = my_table.join(
         {description = "decrease the number of master clients", group = "layout"}
     ),
 
+    -- quick layout tool for verical screens
+    awful.key(
+        { modkey, "Control" }, "Up",
+        function () 
+            awful.tag.incnmaster( 3, nil, true) 
+        end,
+        {description = "increase the number of master clients", group = "layout"}
+    ),
+
 
     awful.key(
         { modkey, "Control" }, "h",
@@ -678,40 +688,50 @@ globalkeys = my_table.join(
     ),
 
     -- Brightness
-    -- awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
-    --          {description = "+10%", group = "hotkeys"}),
-    -- awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
-    --          {description = "-10%", group = "hotkeys"})
+    -- awful.key(
+    --     { }, "XF86MonBrightnessUp", 
+    --     function () 
+    --         os.execute("light -A 10") 
+    --     end,
+    --     {description = "+10%", group = "hotkeys"}
+    -- ),
+    -- awful.key(
+    --     { }, "XF86MonBrightnessDown", 
+    --     function () 
+    --         os.execute("light -U 10") 
+    --     end,
+    --     {description = "-10%", group = "hotkeys"}
+    -- ),
 
     -- ALSA volume control
     awful.key(
         { }, "XF86AudioRaiseVolume",
         function ()
-            os.execute("pactl set-sink-volume 0 +5%")
-        end
-    ),
-    awful.key(
-        { modkey, "Shift" }, "0",
-        function()
-            os.execute("pactl set-sink-volume 0 +5%")
+            volume_widget:inc()
         end
     ),
     awful.key(
         { }, "XF86AudioLowerVolume",
         function ()
-            os.execute("pactl set-sink-volume 0 -5%")
+            volume_widget:dec()
         end
     ),
-    awful.key(
-        { modkey, "Shift" }, "9",
-        function()
-            os.execute("pactl set-sink-volume 0 -5%")
-        end
-    ),
+    -- awful.key(
+    --     { modkey, "Shift" }, "0",
+    --     function()
+    --         os.execute("pactl set-sink-volume 0 +5%")
+    --     end
+    -- ),
+    -- awful.key(
+    --     { modkey, "Shift" }, "9",
+    --     function()
+    --         os.execute("pactl set-sink-volume 0 -5%")
+    --     end
+    -- ),
     awful.key(
         { }, "XF86AudioMute",
         function ()
-            os.execute("pactl set-sink-mute 0 toggle")
+            volume_widget:toggle()
         end
     )
     -- awful.key({ modkey1, "Shift" }, "m",
@@ -939,24 +959,34 @@ awful.rules.rules = {
     },
 
     { 
-        rule = { class = "VirtualBox Manager" },
+        rule = { class = "gwenview" },
         properties = { maximized = true } 
-    },
+    },    
 
     { 
-        rule = { class = "VirtualBox Machine" },
-        properties = { maximized = true } 
+        rule = { class = "Xfce4-settings-manager" },
+        properties = { floating = false } 
     },
 
-    { 
-        rule = { class = "Vivaldi-stable" },
-        properties = { maximized = false, floating = false } 
-    },
+    -- { 
+    --     rule = { class = "VirtualBox Manager" },
+    --     properties = { maximized = true } 
+    -- },
 
-    { 
-        rule = { class = "Vivaldi-stable" },
-        properties = { callback = function (c) c.maximized = false end } 
-    },
+    -- { 
+    --     rule = { class = "VirtualBox Machine" },
+    --     properties = { maximized = true } 
+    -- },
+
+    -- { 
+    --     rule = { class = "Vivaldi-stable" },
+    --     properties = { maximized = false, floating = false } 
+    -- },
+
+    -- { 
+    --     rule = { class = "Vivaldi-stable" },
+    --     properties = { callback = function (c) c.maximized = false end } 
+    -- },
 
     --IF using Vivaldi snapshot you must comment out the rules above for Vivaldi-stable as they conflict
     --    { rule = { class = "Vivaldi-snapshot" },
@@ -964,11 +994,6 @@ awful.rules.rules = {
 
     --    { rule = { class = "Vivaldi-snapshot" },
     --          properties = { callback = function (c) c.maximized = false end } },
-
-    { 
-        rule = { class = "Xfce4-settings-manager" },
-        properties = { floating = false } 
-    },
 
     -- Floating clients.
     { 
