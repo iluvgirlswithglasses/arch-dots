@@ -28,7 +28,7 @@ configuration {
 
 * {
     background-color:             	@bg;
-    ac:                             #b4d9e3;
+    ac:                             #89b3bf;
 }
 
 window {
