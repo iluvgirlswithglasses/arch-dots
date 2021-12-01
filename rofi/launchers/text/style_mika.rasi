@@ -20,8 +20,8 @@ configuration {
     display-windowcd: 				"";
     display-run: 					"";
     display-ssh: 					"";
-    display-drun: 					"./";
-    display-combi: 					"./";
+    display-drun: 					"~/";
+    display-combi: 					"~/";
 }
 
 @import "styles/colors.rasi"
