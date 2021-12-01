@@ -290,7 +290,7 @@ globalkeys = my_table.join(
     -- an additional feature: layout refresh
     -- since nvidia driver is terrible
     awful.key(
-        { modkey, "Control" }, "r", 
+        { modkey }, "w", 
         function () 
             awful.util.spawn( "kitty sh -c \"layout refresh for nvidia driver\"" ) 
         end,
@@ -322,7 +322,7 @@ globalkeys = my_table.join(
     awful.key(
         { modkey }, "e", 
         function() 
-            awful.util.spawn( filemanager ) 
+            awful.util.spawn( "kitty -e vifm" ) 
         end,
         {description = "Open file manager", group = "apps"}
     ),
@@ -609,23 +609,7 @@ globalkeys = my_table.join(
     -- awful.key({ modkey, "Shift"   }, "x", awesome.quit,
     --          {description = "quit awesome", group = "awesome"}),
 
-    -- increase column / row per layout
-    awful.key(
-        { altkey, "Shift" }, "l",
-        function () 
-            awful.tag.incmwfact(0.05)
-        end,
-        {description = "increase master width factor", group = "layout"}
-    ),
-    awful.key(
-        { altkey, "Shift" }, "h",
-        function () 
-            awful.tag.incmwfact(-0.05)
-        end,
-        {description = "decrease master width factor", group = "layout"}
-    ),
-
-    -- for vertical screens
+    -- increase row, for vertical screens
     awful.key(
         { modkey, "Shift" }, "Up",
         function () 
@@ -641,36 +625,43 @@ globalkeys = my_table.join(
         {description = "decrease the number of master clients", group = "layout"}
     ),
 
-    -- quick layout tool for verical screens
     awful.key(
-        { modkey, "Control" }, "Up",
+        { modkey, "Shift" }, "k",
         function () 
-            awful.tag.incnmaster( 3, nil, true) 
+            awful.tag.incnmaster( 1, nil, true) 
         end,
         {description = "increase the number of master clients", group = "layout"}
     ),
-
-
     awful.key(
-        { modkey, "Control" }, "h",
+        { modkey, "Shift" }, "j",
         function () 
-            awful.tag.incncol( 1, nil, true)
+            awful.tag.incnmaster(-1, nil, true) 
         end,
-        {description = "increase the number of columns", group = "layout"}
+        {description = "decrease the number of master clients", group = "layout"}
     ),
-    awful.key(
-        { modkey, "Control" }, "l",
-        function () 
-            awful.tag.incncol(-1, nil, true)
-        end,
-        {description = "decrease the number of columns", group = "layout"}
-    ),
+
+    -- awful.key(
+    --     { modkey, "Control" }, "h",
+    --     function () 
+    --         awful.tag.incncol( 1, nil, true)
+    --     end,
+    --     {description = "increase the number of columns", group = "layout"}
+    -- ),
+    -- awful.key(
+    --     { modkey, "Control" }, "l",
+    --     function () 
+    --         awful.tag.incncol(-1, nil, true)
+    --     end,
+    --     {description = "decrease the number of columns", group = "layout"}
+    -- ),
+
     awful.key(
         { modkey, }, "space", 
         function () 
             awful.layout.inc( 1)
         end,
-        {description = "select next", group = "layout"}),
+        {description = "select next", group = "layout"}
+    ),
     -- awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1) end,
              -- {description = "select previous", group = "layout"}),
 
