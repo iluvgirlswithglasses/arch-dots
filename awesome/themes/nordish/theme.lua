@@ -425,8 +425,8 @@ function theme.at_screen_connect(s)
                           widget = wibox.container.background,
                         },
                         {
-                          format = " %H:%M%p ",
-                          refresh = 60,
+                          format = " %H:%M:%S %p ",
+                          refresh = 0.5,
                           widget = wibox.widget.textclock
                         },
                         margins = 5,
@@ -524,7 +524,7 @@ function theme.at_screen_connect(s)
           widgets.volume,
           appsep,
           systray,
-          appsep,appsep,
+          appsep,
           add_app(
               function()
                 awful.spawn.with_shell(TERMINAL .." -e nmtui")

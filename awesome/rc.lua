@@ -912,7 +912,7 @@ awful.rules.rules = {
     -- find class or role via xprop command
 
     { 
-        rule = { class = editorgui },
+        rule = { class = "subl" },
         properties = { maximized = true } 
     },
 

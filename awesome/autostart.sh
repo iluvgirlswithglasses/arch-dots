@@ -26,7 +26,7 @@ run dunst
 
 
 ### run applications from startup
-run qbittorrent.sh.x
+run qbittorrent.x
 
 ### for qbittorrent theme to run properly
 run qt5ct
