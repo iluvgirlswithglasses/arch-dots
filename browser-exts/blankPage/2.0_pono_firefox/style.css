@@ -1,0 +1,110 @@
+
+/* @global */
+body {
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	/* @background */
+	background-color: #000;
+	/* 
+	background-image: url('background.jpg');
+    background-position: center;
+    background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	*/
+}
+
+body * {
+	color: #e0e0e0;
+	font-family: Calibri;
+}
+
+
+/* @container */
+#container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* @clock */
+#clock {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#clock .divider {
+	font-size: 2.5rem;
+	margin: 0 1rem;
+}
+
+#clock .item {
+	position: relative;
+	font-size: 4rem;
+}
+
+/* @message */
+#message {
+	position: relative;
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	font-size: 2rem;
+	white-space: nowrap;
+	text-align: center;
+}
+
+/* effect */
+.glitch::before, .glitch::after {
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.glitch::before {
+	color: #ff00c1;
+	animation: glitch-effect 3s infinite;
+}
+
+.glitch::after {
+	color: #3498db;
+	animation: glitch-effect 2s infinite;
+}
+
+@keyframes glitch-effect {
+	0% {
+		left: -2px;
+		top: -2px;
+	}
+	25% {
+		left: 2px;
+		top: 0px;
+	}
+	50% {
+		left: -1px;
+		top: 2px;
+	}
+	75% {
+		left: 1px;
+		top: -1px;
+	}
+	100% {
+		left: 0px;
+		top: -2px;
+	}
+}
+
