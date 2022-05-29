@@ -19,7 +19,7 @@ export PATH=$PATH:$EXC:$EXCSYS:/home/mika/.local/bin
 export GAMEDIR=/home/mika/wine/
 
 # directories
-export HDD=/mnt/hdd
+export hdd=/mnt/hdd
 
 # system theme
 # options: kde, qt5ct

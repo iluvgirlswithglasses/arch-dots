@@ -1,0 +1,12 @@
+
+Only these directories are useful:
+	exc/		# executable files
+	excsys/		# executable files for programs
+    harbour/    # alright everyone who works with me knows what this means
+	note/		# the real ~/Documents directory
+	r/			# the real ~/
+    sc/         # shortcuts
+
+Any directory else in this $HOME is trash
+
+Note: To use a shortcut, run `$ . shortcut-name`. In mikadb there's a shortcut named 'pp' too!

@@ -1,0 +1,26 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+
+# references:
+# https://wiki.archlinux.org/title/Xbindkeys
+
+# enable numlock on startup
+# keystate_numlock = enable
+
+# Increase volume
+"pactl set-sink-mute 0 false && pactl set-sink-volume 0 +5%"
+	XF86AudioRaiseVolume
+
+# Decrease volume
+"pactl set-sink-mute 0 false && pactl set-sink-volume 0 -5%"
+        XF86AudioLowerVolume
+
+# Mute volume
+"pactl set-sink-mute 0 toggle"
+	XF86AudioMute
+
+##################################
+# End of xbindkeys configuration #
+##################################
