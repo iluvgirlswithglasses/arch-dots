@@ -1,0 +1,7 @@
+### to use dolphin as file picker
+### install xdg-desktop-portal and xdg-desktop-portal-kde
+### then uncomment the following two lines
+### nevertheless, XDG_CURRENT_DESKTOP=KDE is laggy af
+
+# XDG_CURRENT_DESKTOP=KDE
+# GTK_USE_PORTAL=1

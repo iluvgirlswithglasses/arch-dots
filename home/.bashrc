@@ -49,7 +49,7 @@ function lsii() {
 
 # cd to folder with index $1
 function cdi() {
-	cd "ls | sed -n $1p";
+	cd "`ls | sed -n $1p`";
 }
 
 # copy $1 to clipboard
