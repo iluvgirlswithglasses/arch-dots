@@ -2,14 +2,16 @@
 " system behavior
 set noerrorbells
 set noswapfile
+set wrap linebreak
 
 " clipboard
 vnoremap <C-c> "+y
 vnoremap y "+y
+vnoremap d "+d
+vnoremap p "+p
 nnoremap yy "+yy
 nnoremap dd "+dd
 nnoremap p "+p
-vnoremap p "+p
 
 " quick commands
 cnoremap q q!
