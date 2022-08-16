@@ -912,11 +912,6 @@ awful.rules.rules = {
     -- find class or role via xprop command
 
     { 
-        rule = { class = "subl" },
-        properties = { maximized = true } 
-    },
-
-    { 
         rule = { class = "Geany" },
         properties = { maximized = false, floating = false } 
     },
@@ -926,32 +921,32 @@ awful.rules.rules = {
 
     { 
         rule = { class = "Gimp*", role = "gimp-image-window" },
-        properties = { maximized = true } 
+        properties = { maximized = false } 
     },
 
     { 
         rule = { class = "Gnome-disks" },
-        properties = { maximized = true } 
+        properties = { maximized = false } 
     },
 
     { 
         rule = { class = "inkscape" },
-        properties = { maximized = true } 
+        properties = { maximized = false } 
     },
 
     { 
         rule = { class = mediaplayer },
-        properties = { maximized = true } 
+        properties = { fullscreen = true } 
     },
 
     { 
         rule = { class = "mpv" },
-        properties = { maximized = true } 
+        properties = { fullscreen = true } 
     },
 
     { 
         rule = { class = "gwenview" },
-        properties = { maximized = true } 
+        properties = { maximized = false } 
     },    
 
     { 
@@ -961,12 +956,12 @@ awful.rules.rules = {
 
     -- { 
     --     rule = { class = "VirtualBox Manager" },
-    --     properties = { maximized = true } 
+    --     properties = { maximized = false } 
     -- },
 
     -- { 
     --     rule = { class = "VirtualBox Machine" },
-    --     properties = { maximized = true } 
+    --     properties = { maximized = false } 
     -- },
 
     -- { 

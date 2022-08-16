@@ -24,3 +24,4 @@ run numlockx on
 run nitrogen --restore
 run dunst
 run qbittorrent
+run discord --start-minimized

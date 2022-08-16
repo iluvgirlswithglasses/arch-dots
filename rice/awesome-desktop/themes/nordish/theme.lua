@@ -4,10 +4,7 @@ Config files by MrJakeSir
 
 
 --[[
-currently using non-padding mode
-which is... pretty unfriendly to wallpapers
-
-change mode in @padding-layout
+change mode in @padding-layout and @taskbar-padding
 ]]--
 
 local gears = require("gears")
@@ -53,7 +50,7 @@ theme.taglist_font                              = "JetBrainsMono Nerd Font 15"
 -- Otherwise you can change them by using:
 --      altkey + ctrl + j           = Increment gaps
 --      altkey + ctrl + h           = Decrement gaps
-theme.useless_gap                               = 0
+theme.useless_gap                               = 5
 
 --  Foreground variables  --
 theme.fg_normal                                 = "#ffffff" -- White
@@ -295,8 +292,8 @@ function theme.at_screen_connect(s)
         position = "top",
         screen = s, 
         -- @padding-layout
-        -- width = dpi(s.workarea.width-40-theme.border_width-7),
-        width = dpi(s.workarea.width+31),
+        width = dpi(s.workarea.width-8-theme.border_width),
+        -- width = dpi(s.workarea.width+31),
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         border_width = 5,
@@ -476,7 +473,8 @@ function theme.at_screen_connect(s)
       return widget
     end 
     local time = calendar(time)
-    -- s.mywibox.y = 10
+    -- @taskbar-padding
+    s.mywibox.y = s.mywibox.y + 10
     
 ---------------------------------------
 --                                    --
@@ -558,7 +556,7 @@ function theme.at_screen_connect(s)
         }
     }
     -- @padding-layout
-    -- awful.screen.padding(screen[s], {top = 25, left = 20, right = 20, bottom = 10})
+    awful.screen.padding(screen[s], {top = 10, left = 10, right = 10, bottom = 0})
 end
 
 -- Returns the theme 
