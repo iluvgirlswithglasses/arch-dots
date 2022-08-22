@@ -14,12 +14,13 @@ xrandr --output HDMI-1 --pos 1920x0 --rotate right
 ### add environment variables
 # executable
 export EXC=/home/mika/exc
-export PATH=$PATH:$EXC:/home/mika/.local/bin
+export PATH=$PATH:$EXC:/home/mika/.local/bin:/home/mika/.deno/bin:$PATH
 
 # directories
 export hdd=/mnt/hdd
 
-# system theme
-# options: kde, qt5ct, gtk
-export QT_QPA_PLATFORMTHEME=kde
-
+# system
+export QT_QPA_PLATFORMTHEME=kde # options: kde, qt5ct, gtk
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=@ibus
+export QT_IM_MODULE=ibus
