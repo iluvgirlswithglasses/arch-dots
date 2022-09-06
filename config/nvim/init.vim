@@ -7,10 +7,10 @@ set wrap linebreak
 " clipboard
 vnoremap <C-c> "+y
 vnoremap y "+y
-vnoremap d "+d
+vnoremap d "_d
 vnoremap p "+p
 nnoremap yy "+yy
-nnoremap dd "+dd
+nnoremap dd "_dd
 nnoremap p "+p
 
 " quick commands
