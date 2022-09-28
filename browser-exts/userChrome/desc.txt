@@ -8,3 +8,7 @@ C:\Users\luuna\AppData\Roaming\Mozilla\Firefox\Profiles
 
 -- ref
 https://support.mozilla.org/en-US/questions/1287312
+
+-- how to use
+copy ./chrome to the firefox program files
+
