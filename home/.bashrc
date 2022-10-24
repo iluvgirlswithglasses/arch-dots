@@ -14,6 +14,7 @@ printf "lets all love lain\n";
 alias py="python3";
 alias vim="nvim";
 alias cin="cat";
+alias q="exit";
 
 
 #####################################################
@@ -21,11 +22,15 @@ alias cin="cat";
 #####################################################
 
 # git
-function pullsh() {
-    git pull;
+function qpush() {
     git add .;
     git commit -m "$1";
     git push;
+}
+
+function pullsh() {
+    git pull;
+    qpush $1;
 }
 
 # print file with index $1
