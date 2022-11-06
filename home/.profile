@@ -14,7 +14,7 @@ xrandr --output HDMI-1 --pos 1920x0 --rotate right
 ### add environment variables
 # executable
 export EXC=/home/mika/exc
-export PATH=$PATH:$EXC:/home/mika/.local/bin:/home/mika/.deno/bin:$PATH
+export PATH=$PATH:$EXC:/home/mika/.local/bin:/home/mika/.deno/bin
 
 # directories
 export hdd=/mnt/hdd
