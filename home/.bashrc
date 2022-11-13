@@ -3,6 +3,7 @@
 #### ---- bash startup ---- ####
 ################################
 
+tabs -4
 neofetch;
 printf "lets all love lain\n";
 
@@ -98,10 +99,6 @@ function mpvl() {
 # download via m3u8 link
 function m3u8dl() {
 	ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "$1" -c copy "$2";
-}
-
-function md2pdf() {
-	pandoc --pdf-engine=xelatex "$1.md" -o "$1.pdf";
 }
 
 
