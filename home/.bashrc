@@ -15,6 +15,7 @@ alias py="python3";
 alias vim="nvim";
 alias cin="cat";
 alias q="exit";
+alias xsel="xsel --clipboard";
 
 
 #####################################################
