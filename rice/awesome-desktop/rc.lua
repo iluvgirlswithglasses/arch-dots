@@ -277,8 +277,8 @@ end)
 -- {{{ Mouse bindings
 root.buttons(my_table.join(
     awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 4, awful.tag.viewprev),
+    awful.button({ }, 5, awful.tag.viewnext)
 ))
 -- }}}
 
@@ -585,6 +585,14 @@ globalkeys = my_table.join(
     
     awful.key(
         {}, "Print", 
+        function () 
+            awful.util.spawn_with_shell("flameshot gui") 
+        end,
+        {description = terminal, group = "super"}
+    ),
+
+    awful.key(
+        { modkey, "Shift" }, "s", 
         function () 
             awful.util.spawn_with_shell("flameshot gui") 
         end,
