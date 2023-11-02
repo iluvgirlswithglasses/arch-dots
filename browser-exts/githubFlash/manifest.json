@@ -1,26 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "Hide Github Warning Flash",
-  "description": "Hides the annoying yellow warning flash of Github",
-  "version": "1.0",
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "addon@iluvgirlswithglasses.com"
-    }
-  },
+	"manifest_version": 2,
+	"name": "Hide Github Warning Flash",
+	"description": "Hides the annoying yellow warning flash of Github",
+	"version": "1.0",
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "addon@iluvgirlswithglasses.com"
+		}
+	},
 
-  "background": {
-    "scripts": ["background.js"]
-  },
+	"background": {
+		"scripts": ["background.js"]
+	},
 
-  "page_action": {
-    "default_icon": "icons/off.svg",
-    "browser_style": true
-  },
+	"page_action": {
+		"default_icon": "icons/off.svg",
+		"browser_style": true
+	},
 
-  "permissions": [
-    "activeTab",
-    "tabs"
-  ]
+	"permissions": [
+		"activeTab",
+		"tabs"
+	]
 
 }
